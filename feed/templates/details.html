@@ -1,0 +1,9 @@
+{% block title %} Post Details Page {% endblock %}
+{% block body %} 
+<div class="rows">
+    <div class="col-sm-10 offset-sm-1 py-4">
+        <h2>{{object.text}}</h2>
+        <img src="{{object.image.url}}" alt="img-fluid rounded">
+    </div>
+</div>
+{% endblock%}
