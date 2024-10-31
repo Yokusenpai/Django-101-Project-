@@ -1,0 +1,30 @@
+{% extends "base.html" %} 
+{% load thumbnail %} 
+{% block title %}Searcing...{% endblock %}
+
+{% block body %}
+<div class="row">
+  {% for posts in object_list %}
+  <div class="col-sm-6 col-md-4">
+    <div class="card my-4">
+      {% thumbnail posts.image "250x250" crop="center" as im %}
+      <img src="{{ im.url }}" class="card-img-top" alt="{{posts.text}}" />
+      {% endthumbnail %}
+      <div class="card-body">
+        <p class="card-text">{{posts.text}}</p>
+        <a href="{% url 'feed:details' posts.id %}" class="btn btn-primary"
+          >View Details</a
+        >
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-sm-6 offset-3 text-center py-4">
+      <h3>Not Found!</h3>
+      <p>Sorry, we couldn't find your post</p>
+      <a href="{% url 'feed:index' %}" class="btn btn-lg btn-success">Go home</a>
+  </div>
+
+  {% endfor %}
+</div>
+{% endblock  %} 

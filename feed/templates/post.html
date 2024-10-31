@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% load thumbnail %} 
+{% block title %}Add A Post{% endblock %}
+
+{% block body %}
+<form
+  method="POST"
+  action=""
+  enctype="multipart/form-data"
+  class="col-sm-4 offset-4 form py-5 my-5"
+>
+  <h2>Add A Post!</h2>
+  {% csrf_token %} 
+  {{form.as_p}}
+  <div>
+    <button type="submit" class="btn btn-primary">Upload!</button>
+  </div>
+</form>
+{% endblock  %}
